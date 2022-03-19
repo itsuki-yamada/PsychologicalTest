@@ -1,8 +1,14 @@
 {
-  "name": "PsychologicalTest",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:itsuki-yamada/PsychologicalTest.git",
-  "author": "yamadaitsuki <yamada351035@gmail.com>",
-  "license": "MIT"
+    "name": "PsychologicalTest",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:itsuki-yamada/PsychologicalTest.git",
+    "author": "yamadaitsuki <yamada351035@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "husky": "^7.0.0"
+    },
+    "scripts": {
+        "prepare": "husky install app/psychological-test/.husky"
+    }
 }
