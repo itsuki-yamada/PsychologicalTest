@@ -4,9 +4,9 @@ env:
 extends:
   - plugin:react/recommended
   - plugin:jest/recommended
+  - plugin:import/recommended
   - airbnb
   - prettier
-  - plugin:import
 parserOptions:
   ecmaFeatures:
     jsx: true
