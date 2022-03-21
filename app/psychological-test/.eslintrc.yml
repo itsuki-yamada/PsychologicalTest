@@ -6,6 +6,7 @@ extends:
   - plugin:jest/recommended
   - airbnb
   - prettier
+  - plugin:import
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -13,14 +14,12 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+settings:
+  import/resolver:
+    jsconfig:
+      config: "jsconfig.json"
 rules:
-  {
-    "react/function-component-definition":
-      [
-        2,
-        {
-          "namedComponents": "arrow-function",
-          "unnamedComponents": "arrow-function",
-        },
-      ],
-  }
+  react/function-component-definition:
+    - 2
+    - namedComponents: "arrow-function"
+    - unnamedComponents: "arrow-function"
