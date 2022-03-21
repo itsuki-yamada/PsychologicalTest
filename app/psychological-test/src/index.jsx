@@ -5,10 +5,10 @@ import RouterConfig from 'RouterConfig';
 import './index.css';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <RouterConfig />
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <RouterConfig />
+  </React.StrictMode>,
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
