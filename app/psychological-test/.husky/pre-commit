@@ -1,6 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-docker-compose exec app yarn run lint:prettier
 docker-compose exec app yarn run lint:eslint
 docker-compose exec app yarn run test
