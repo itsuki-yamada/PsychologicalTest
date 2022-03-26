@@ -6,6 +6,7 @@ import {
   ListItem,
   Text,
 } from '@chakra-ui/react';
+import { getAllTestHeaders } from 'lib/psychologicalTest';
 import { Container } from '../components/Container';
 import { CTA } from '../components/CTA';
 import { DarkModeSwitch } from '../components/DarkModeSwitch';
@@ -13,42 +14,58 @@ import { Footer } from '../components/Footer';
 import { Hero } from '../components/Hero';
 import { Main } from '../components/Main';
 
-const Index = () => (
-  <Container height="100vh">
-    <Hero title="心理テストApp" />
-    <Main>
-      <Text>
-        心理テストアプリです。
-        下記のリストから受けたい心理テストを選択してください。
-      </Text>
+export const getStaticProps = async (context) => {
+  // sample心理テストデータ読み込み
+  const testHeaders = getAllTestHeaders();
+  return {
+    props: { testHeaders },
+  };
+};
 
-      <List spacing={3} my={0}>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink
-            isExternal
-            href="https://chakra-ui.com"
-            flexGrow={1}
-            mr={2}
-          >
-            Chakra UI <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink isExternal href="https://nextjs.org" flexGrow={1} mr={2}>
-            Next.js <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-      </List>
-    </Main>
+const Index = ({ testHeaders }) => {
+  console.log(testHeaders);
+  return (
+    <Container height="100vh">
+      <Hero title="心理テストApp" />
+      <Main>
+        <Text>
+          心理テストアプリです。
+          下記のリストから受けたい心理テストを選択してください。
+        </Text>
 
-    <DarkModeSwitch />
-    <Footer>
-      <Text>Next ❤️ Chakra</Text>
-    </Footer>
-    <CTA />
-  </Container>
-);
+        <List spacing={3} my={0}>
+          <ListItem>
+            <ListIcon as={CheckCircleIcon} color="green.500" />
+            <ChakraLink
+              isExternal
+              href="https://chakra-ui.com"
+              flexGrow={1}
+              mr={2}
+            >
+              Chakra UI <LinkIcon />
+            </ChakraLink>
+          </ListItem>
+          <ListItem>
+            <ListIcon as={CheckCircleIcon} color="green.500" />
+            <ChakraLink
+              isExternal
+              href="https://nextjs.org"
+              flexGrow={1}
+              mr={2}
+            >
+              Next.js <LinkIcon />
+            </ChakraLink>
+          </ListItem>
+        </List>
+      </Main>
+
+      <DarkModeSwitch />
+      <Footer>
+        <Text>Next ❤️ Chakra</Text>
+      </Footer>
+      <CTA />
+    </Container>
+  );
+};
 
 export default Index;
