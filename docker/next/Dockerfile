@@ -1,7 +1,7 @@
 FROM node:16.14.0
 USER root
 
-WORKDIR /usr/src/app
+WORKDIR /next
 
 RUN apt-get update && apt-get install -y \
   locales &&\
@@ -13,3 +13,4 @@ ENV TZ JST-9
 ENV TERM xterm
 
 RUN apt-get install -y vim less
+RUN yarn install

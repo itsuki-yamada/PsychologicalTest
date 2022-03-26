@@ -1,13 +1,14 @@
-version: '3'
+version: "3"
+
 services:
-  app:
-    container_name: app
-    build:
+  front:
+    container_name: next
+    build: 
       context: .
-      dockerfile: ./docker/react/Dockerfile
+      dockerfile: ./docker/next/Dockerfile
     volumes:
-      - ./app/psychological-test:/usr/src/app
+      - ./front:/next
     tty: true
-    command: sh -c "yarn run start"
     ports:
-      - "3000:3000"
+      - 3000:3000
+    command: yarn dev
