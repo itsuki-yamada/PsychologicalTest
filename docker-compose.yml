@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  front:
+    container_name: next
+    build: 
+      context: .
+      dockerfile: ./docker/next/Dockerfile
+    volumes:
+      - ./front:/next
+    tty: true
+    ports:
+      - 3000:3000
+    command: yarn dev
