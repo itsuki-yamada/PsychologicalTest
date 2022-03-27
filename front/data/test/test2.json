@@ -1,0 +1,38 @@
+{
+  "id": "test2",
+  "title": "あなたが深夜起きたら何をするか?",
+  "description": "あなたの隠れた野心を暴きます。",
+  "firstQuestionId": "q1",
+  "question": {
+    "q1": {
+      "question": "仕事においてやりがいとお金どっちが大事?",
+      "answer": [
+        { "answer": "お金", "next": { "type": "question", "id": "q2" } },
+        { "answer": "やりがい", "next": { "type": "result", "id": "r1" } }
+      ]
+    },
+    "q2": {
+      "question": "年収300万だけど楽しい仕事と年収500万だけど楽しくない仕事どっちを選ぶ?",
+      "answer": [
+        {
+          "answer": "年収300万の仕事",
+          "next": { "type": "result", "id": "r1" }
+        },
+        {
+          "answer": "年収500万の仕事",
+          "next": { "type": "result", "id": "r2" }
+        }
+      ]
+    }
+  },
+  "result": {
+    "r1": {
+      "title": "あなたは中小企業タイプ",
+      "content": "やりがい第一"
+    },
+    "r2": {
+      "title": "あなたは大企業タイプ",
+      "content": "安定第一"
+    }
+  }
+}
