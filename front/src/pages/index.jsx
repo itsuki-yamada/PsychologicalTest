@@ -73,7 +73,11 @@ const Index = ({ testHeaders, router }) => {
         <SectionTitle>Tests</SectionTitle>
         <Stack>
           {testHeaders.map((test) => (
-            <TestLinkBox test={{ ...test }} link={'/test'} />
+            <TestLinkBox
+              key={test.id}
+              test={{ ...test }}
+              link={`/test/${test.id}`}
+            />
           ))}
         </Stack>
       </Section>

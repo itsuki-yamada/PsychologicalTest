@@ -1,5 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import HomePage from 'components/layout/HomePage';
+import HomePage from 'components/layout/Main';
 import theme from 'lib/theme';
 
 function MyApp({ Component, pageProps, router }) {

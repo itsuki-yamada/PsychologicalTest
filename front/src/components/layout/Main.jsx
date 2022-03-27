@@ -2,7 +2,7 @@ import { Container } from '@chakra-ui/react';
 import NavBar from 'components/NavBar';
 import React from 'react';
 
-const HomePage = ({ children, router }) => {
+const main = ({ children, router }) => {
   return (
     <>
       <NavBar path={router.asPath} />
@@ -14,4 +14,4 @@ const HomePage = ({ children, router }) => {
   );
 };
 
-export default HomePage;
+export default main;
