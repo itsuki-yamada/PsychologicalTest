@@ -1,16 +1,8 @@
-import {
-  Box,
-  Center,
-  Container,
-  Heading,
-  LinkBox,
-  LinkOverlay,
-  SimpleGrid,
-  Stack,
-} from '@chakra-ui/react';
+import { Container, SimpleGrid, Stack } from '@chakra-ui/react';
+import { LinkCard } from 'components/LinkCard';
+import { Section, SectionTitle } from 'components/Section';
 import TestLinkBox from 'components/TestLinkBox';
 import { getAllTestHeaders } from 'lib/psychologicalTest';
-import NextLink from 'next/link';
 
 export const getStaticProps = async (context) => {
   // sample心理テストデータ読み込み
@@ -18,38 +10,6 @@ export const getStaticProps = async (context) => {
   return {
     props: { testHeaders },
   };
-};
-
-const Section = ({ children }) => (
-  <Box mb={4} p={3}>
-    {children}
-  </Box>
-);
-
-const SectionTitle = ({ children }) => (
-  <Heading size="lg" my={2}>
-    {children}
-  </Heading>
-);
-
-const LinkCard = ({ link = '#', title }) => {
-  return (
-    <LinkBox
-      height={16}
-      borderWidth="1px"
-      rounded="md"
-      borderColor="whiteAlpha.600"
-      _hover={{ bg: 'pink' }}
-    >
-      <Center h="full">
-        <NextLink href={link} passHref>
-          <LinkOverlay fontWeight="bold" fontSize="lg">
-            {title}
-          </LinkOverlay>
-        </NextLink>
-      </Center>
-    </LinkBox>
-  );
 };
 
 const Index = ({ testHeaders, router }) => {
