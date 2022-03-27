@@ -24,3 +24,9 @@ export const getAllTestHeaders = () => {
     };
   });
 };
+
+export const getTestData = (testId) => {
+  const filePath = path.join(testsDirectory, `${testId}.json`);
+  const testFile = fs.readFileSync(filePath);
+  return JSON.parse(testFile);
+};
