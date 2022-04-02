@@ -4,6 +4,7 @@ import { Section, SectionTitle } from 'components/Section';
 import { useQuestion } from 'hooks/useQuestion';
 import { getAllTestIds, getTestData } from 'lib/psychologicalTest';
 import { Question } from '../../components/Question';
+// TODO: absolute pathの読み込みが上手く行かない。ファイル名の問題な気がしている
 
 export async function getStaticPaths() {
   const testIds = getAllTestIds();
@@ -30,6 +31,7 @@ export async function getStaticProps({ params }) {
  */
 const test = ({ testData }) => {
   console.log(testData);
+  // TODO: ここQuestion管理とアクション管理でStateを分けたほうがいい気もする。
   const [currentQId, execNextAction] = useQuestion('');
   return (
     <>

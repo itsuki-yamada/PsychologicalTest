@@ -1,5 +1,6 @@
 import { Button, SimpleGrid } from '@chakra-ui/react';
 
+// TODO:レイアウト整える
 export const Question = ({ question, onClick = () => {} }) => {
   return (
     <>
