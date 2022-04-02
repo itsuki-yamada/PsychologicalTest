@@ -1,5 +1,9 @@
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import { Button, Center } from '@chakra-ui/react';
+import { Section, SectionTitle } from 'components/Section';
+import { useQuestion } from 'hooks/useQuestion';
 import { getAllTestIds, getTestData } from 'lib/psychologicalTest';
-import React from 'react';
+import { Question } from '../../components/Question';
 
 export async function getStaticPaths() {
   const testIds = getAllTestIds();
@@ -19,9 +23,40 @@ export async function getStaticProps({ params }) {
   };
 }
 
+/**
+ *
+ * @param {*} param0
+ * @returns
+ */
 const test = ({ testData }) => {
   console.log(testData);
-  return <div>{JSON.stringify(testData)}</div>;
+  const [currentQId, execNextAction] = useQuestion('');
+  return (
+    <>
+      <Section>
+        <SectionTitle>{testData.title}</SectionTitle>
+        {testData.description}
+      </Section>
+      <Section>
+        {!!currentQId ? (
+          <Question
+            question={testData.question[currentQId]}
+            onClick={execNextAction}
+          />
+        ) : (
+          <Center>
+            <Button
+              onClick={() => execNextAction(testData.firstAction)}
+              rightIcon={<ChevronRightIcon />}
+              _hover={{ bg: 'pink' }}
+            >
+              Start
+            </Button>
+          </Center>
+        )}
+      </Section>
+    </>
+  );
 };
 
 export default test;
