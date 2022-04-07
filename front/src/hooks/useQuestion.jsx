@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+// TODO: 選択されたテストデータを保持して、管理をこのhooksに任せたほうがよいかも?
 export const useQuestion = (initQId = '') => {
   const router = useRouter();
   const [currentQId, setCurrentQid] = useState(initQId);
@@ -11,7 +12,7 @@ export const useQuestion = (initQId = '') => {
         setCurrentQid(nextAction.id);
         break;
       case 'result':
-        router.push('/');
+        router.push(`/result/${nextAction.id}`);
         break;
       default:
         break;
